@@ -437,7 +437,7 @@ main {
         padding: 1.5rem;
     }
 
-    tab-content, .form-group  {
+    .tab-content, .form-group  {
         width: 100%;
         overflow-x: auto;
     }
