@@ -475,7 +475,7 @@ function savePlayers() {
 
 // Load players from localStorage
 function loadPlayers() {
-    const savedPlayers = localStorage.getItem('fantaPremierPlayers');
+    const savedPlayers = localStorage.getItem('fantaSerieAPlayers');
     if (savedPlayers) {
         players = JSON.parse(savedPlayers);
         // Asegura que todos los jugadores tengan los campos nuevos
