@@ -162,7 +162,8 @@ function switchTab(tabId) {
     if (tabButton) {
         tabButton.classList.add('active');
     }
-   updateTotalPlayersButton();
+
+     updateTotalPlayersButton();
 }
 
 // Render all tables
@@ -172,7 +173,6 @@ function renderAllTables() {
     renderTable('mediocampistas');
     renderTable('delanteros');
     updateTotalPlayersButton();
-
 }
 
 // Render a specific table
@@ -189,11 +189,11 @@ function renderTable(position) {
         if (player.pickType) {
             row.classList.add(player.pickType);
         }
-        
+
         if (position === 'porterias') {
             // Special rendering for goalkeepers
             row.innerHTML = `
-                <td>${player.name}</td>
+                <td>${index + 1}</td>
                 <td>${player.name}</td>
                 <td>${player.team || ''}</td>
                 <td>${player.cleanSheets || ''}</td>
@@ -501,7 +501,6 @@ function loadPlayers() {
     }
 }
 
-
 let sortState = {
     porterias: { column: null, asc: true },
     defensores: { column: null, asc: true },
@@ -541,11 +540,6 @@ function sortAndRender(position, column, asc) {
     renderTable(position);
 }
 
-// Llama a setupSorting cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    setupSorting();
-});
-
 function updateTotalPlayersButton() {
     // Obtiene la pestaña activa
     const activePane = document.querySelector('.tab-pane.active');
@@ -558,3 +552,8 @@ function updateTotalPlayersButton() {
         button.textContent = `${posicion}: ${total}`;
     }
 }
+
+// Llama a setupSorting cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    setupSorting();
+});
